@@ -1,15 +1,12 @@
 import cv2
+capture =cv2.VideoCapture(0)
+salida=cv2.VideoWriter("test.avi",cv2.VideoWriter_fourcc(*'XVID'),30,(640,480))
 
-capture = cv2.VideoCapture(1)
-#objeto salida, contiene los parámetros para crear el video
-salida = cv2.VideoWriter('webCam.avi', cv2.VideoWriter_fourcc(*'XVID'), 10, (640,480))
-
-while (True):
-    ret, frame = capture.read()
-    cv2.imshow('frame',frame)
-    #Usar write para GUARDAR el video
+while True:
+    ret, frame=capture.read()
+    cv2.imshow("ventana",frame)
     salida.write(frame)
-    if (cv2.waitKey(1) == ord('s')):
+    if(cv2.waitKey(1)==ord('q')):
         break
 
 salida.release()
