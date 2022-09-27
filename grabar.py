@@ -27,9 +27,9 @@ while continuar:
     if len(os.listdir(dirVideos)) > 5:
         os.remove(dirVideos+'/'+os.listdir(dirVideos)[0])
     # Inicializar el grabador
-    out=cv2.VideoWriter(dirVideos+'/'+fecha_hora()+'.mp4',cv2.VideoWriter_fourcc(*'mp4v'),30,(1280,720))
+    out=cv2.VideoWriter(dirVideos+'/'+fecha_hora()+'.mp4',cv2.VideoWriter_fourcc(*'mp4v'),10,(1280,720))
     # Grabar durante 5 segundos
-    t_end = time.time() + duracion(0,10,0)
+    t_end = time.time() + duracion(1,0,0)
     numFrames=0
     while (time.time() < t_end):
         ret, frame = cam.read()
