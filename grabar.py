@@ -24,12 +24,12 @@ if not os.path.exists(dirVideos):
 while continuar:
     cam = cv2.VideoCapture(0)
     #eliminar el ultimo video
-    if len(os.listdir(dirVideos)) > 5:
+    if len(os.listdir(dirVideos)) > 12:
         os.remove(dirVideos+'/'+os.listdir(dirVideos)[0])
     # Inicializar el grabador
     out=cv2.VideoWriter(dirVideos+'/'+fecha_hora()+'.mp4',cv2.VideoWriter_fourcc(*'mp4v'),10,(1280,720))
     # Grabar durante 5 segundos
-    t_end = time.time() + duracion(1,0,0)
+    t_end = time.time() + duracion(0,1,0)
     numFrames=0
     while (time.time() < t_end):
         ret, frame = cam.read()
@@ -41,7 +41,7 @@ while continuar:
             continuar=False
             break
         #cv2.waitKey(50)
-    # Liberar la cámara y el grabador
+    # Liberar la camara y el grabador
     out.release()
     cam.release()
 

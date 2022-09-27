@@ -1,0 +1,11 @@
+[Unit]
+Description=Execute this on boot
+
+[Service]
+Type=oneshot
+Environment=XAUTHORITY=/home/jetnano/.Xauthority
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/python /home/jetnano/Desktop/Dashcam/grabar.py
+
+[Install]
+WantedBy=multi-user.target
